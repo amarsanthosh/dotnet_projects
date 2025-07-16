@@ -38,7 +38,7 @@ namespace api.Controller
         }
 
         [HttpPut]
-        [Route("{id}")]
+        [Route("{id:int}")]
         public async Task<IActionResult> UpdateProducts([FromRoute] int id, [FromBody] UpdateDto dto)
         {
             var productModel = dto.ToProductFromUpdateDto();
@@ -48,8 +48,22 @@ namespace api.Controller
                 return BadRequest("Product Not Found !!");
             }
 
-            return Ok("Successfully Updated"); 
+            return Ok("Successfully Updated");
         }
+
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteProducts([FromRoute] int id)
+        {
+            var product = await _productRepo.DeleteProducts(id);
+            if (product == null)
+            {
+                return BadRequest("Product not found!!");
+            }
+            return Ok("Successfully Deleted"); 
+        }
+
+
+
 
     }
 }

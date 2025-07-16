@@ -12,6 +12,6 @@ namespace api.Interface
         Task<Products> CreateProducts(Products productmodel);
 
         Task<Products?> UpdateProducts(int id, Products productmodel);
-
+        Task<Products?> DeleteProducts(int id); 
     }
 }

@@ -45,8 +45,21 @@ namespace api.Repository
             product.Availability = productmodel.Availability;
 
             await _context.SaveChangesAsync();
-            return product; 
+            return product;
 
+        }
+
+        public async Task<Products?> DeleteProducts(int id)
+        {
+            var product = await _context.Products.FirstOrDefaultAsync(i => i.Id == id);
+            if (product == null)
+            {
+                return null;
+            }
+            _context.Products.Remove(product);
+            _context.SaveChanges();
+
+            return product;
         }
     
     }
