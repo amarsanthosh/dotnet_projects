@@ -1,7 +1,10 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Threading.Tasks;
+using api.Dtos;
+using api.Mapper;
 using api.Interface;
 using api.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
@@ -23,7 +26,29 @@ namespace api.Controller
         public async Task<IActionResult> GetProducts()
         {
             var products = await _productRepo.GetAllProducts();
-            return Ok(products);            
+            return Ok(products);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> CreateProducts([FromBody] CreateDto dto)
+        {
+            var productModel = dto.ToProductFromCreateDto();
+            await _productRepo.CreateProducts(productModel);
+            return Ok("Successfully Created");
+        }
+
+        [HttpPut]
+        [Route("{id}")]
+        public async Task<IActionResult> UpdateProducts([FromRoute] int id, [FromBody] UpdateDto dto)
+        {
+            var productModel = dto.ToProductFromUpdateDto();
+            var product = await _productRepo.UpdateProducts(id, productModel);
+            if (product == null)
+            {
+                return BadRequest("Product Not Found !!");
+            }
+
+            return Ok("Successfully Updated"); 
         }
 
     }
