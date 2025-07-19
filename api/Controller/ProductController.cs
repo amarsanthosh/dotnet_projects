@@ -35,6 +35,7 @@ namespace api.Controller
         public async Task<IActionResult> GetProductById([FromRoute] int id)
         {
             var product = await _productRepo.GetProductById(id);
+            if (product == null) return BadRequest("Product not found"); 
             return Ok(product); 
         }
 
