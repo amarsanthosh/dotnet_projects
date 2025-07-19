@@ -9,6 +9,7 @@ namespace api.Interface
     public interface IProductRepository
     {
         Task<List<Products>> GetAllProducts();
+        Task<Products?> GetProductById(int id);
         Task<Products> CreateProducts(Products productmodel);
 
         Task<Products?> UpdateProducts(int id, Products productmodel);

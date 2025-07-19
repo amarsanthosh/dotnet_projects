@@ -29,6 +29,16 @@ namespace api.Controller
             return Ok(products);
         }
 
+
+        [HttpGet("{id:int}")]
+
+        public async Task<IActionResult> GetProductById([FromRoute] int id)
+        {
+            var product = await _productRepo.GetProductById(id);
+            return Ok(product); 
+        }
+
+
         [HttpPost]
         public async Task<IActionResult> CreateProducts([FromBody] CreateDto dto)
         {
