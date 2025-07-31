@@ -19,7 +19,7 @@ builder.Services.AddDbContext<ApplicationDbContext>(Options =>
     Options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
 });
 
-builder.Services.AddIdentity<IdentityUser, AppUser>(Options =>
+builder.Services.AddIdentity< AppUser,IdentityRole>(Options =>
 {
     Options.Password.RequireDigit = true;
     Options.Password.RequiredLength = 8;
