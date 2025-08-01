@@ -7,6 +7,8 @@ using System.Text;
 using System.Threading.Tasks;
 using api.Interface;
 using api.Models;
+using Microsoft.AspNetCore.Identity;
+
 // using Microsoft.IdentityModel.JsonWebTokens;
 using Microsoft.IdentityModel.Tokens;
 
@@ -16,17 +18,26 @@ namespace api.Service
     {
         private readonly IConfiguration _config;
         private readonly SymmetricSecurityKey _key;
-        public TokenService(IConfiguration config)
+        private readonly UserManager<AppUser> _userManager;
+        public TokenService(IConfiguration config,UserManager<AppUser> userManager)
         {
+            _userManager = userManager;
             _config = config;
             _key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_config["JWT:SigningKey"]!));
         }
-        public string createToken(AppUser user)
+        public async Task<string> createToken(AppUser user)
         {
             var claims = new List<Claim>{
                 new Claim(JwtRegisteredClaimNames.Email, user.Email!),
                 new Claim(JwtRegisteredClaimNames.GivenName, user.UserName!)
             };
+
+            var userRoles = await _userManager.GetRolesAsync(user);
+            // Add role claims
+            foreach (var role in userRoles)
+            {
+                claims.Add(new Claim(ClaimTypes.Role, role));
+            }
             var creds = new SigningCredentials(_key, SecurityAlgorithms.HmacSha512Signature);//“Use this secret key and this algorithm to lock (sign) the token.”
 
             //Think of this as filling out a passport form: Who are you, when does it expire, who’s issuing it, etc.

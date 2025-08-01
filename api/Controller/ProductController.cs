@@ -24,7 +24,7 @@ namespace api.Controller
         }
 
         [HttpGet]
-        [Authorize]
+        [Authorize(Roles="Admin")]
         public async Task<IActionResult> GetProducts()
         {
             var products = await _productRepo.GetAllProducts();
@@ -33,7 +33,7 @@ namespace api.Controller
 
 
         [HttpGet("{id:int}")]
-
+        [Authorize]
         public async Task<IActionResult> GetProductById([FromRoute] int id)
         {
             var product = await _productRepo.GetProductById(id);
@@ -43,6 +43,7 @@ namespace api.Controller
 
 
         [HttpPost]
+        [Authorize]
         public async Task<IActionResult> CreateProducts([FromBody] CreateDto dto)
         {
             var productModel = dto.ToProductFromCreateDto();
@@ -51,6 +52,7 @@ namespace api.Controller
         }
 
         [HttpPut]
+        [Authorize]
         [Route("{id:int}")]
         public async Task<IActionResult> UpdateProducts([FromRoute] int id, [FromBody] UpdateDto dto)
         {
@@ -65,6 +67,7 @@ namespace api.Controller
         }
 
         [HttpDelete("{id:int}")]
+        [Authorize]
         public async Task<IActionResult> DeleteProducts([FromRoute] int id)
         {
             var product = await _productRepo.DeleteProducts(id);
@@ -72,11 +75,7 @@ namespace api.Controller
             {
                 return BadRequest("Product not found!!");
             }
-            return Ok("Successfully Deleted"); 
+            return Ok("Successfully Deleted");
         }
-
-
-
-
     }
 }

@@ -2,6 +2,7 @@ using api.Data;
 using api.Interface;
 using api.Models;
 using api.Repository;
+using api.Seeder;
 using api.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -89,6 +90,8 @@ builder.Services.AddSwaggerGen(option =>
     });
 });
 
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -99,6 +102,11 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    await AdminSeeder.SeedRolesAndAdmin(services); 
+}
 app.UseAuthentication();
 app.UseAuthorization(); 
 app.UseHttpsRedirection();
