@@ -2,4 +2,4 @@ api/bin
 api/obj
 .vscode/
 api/appsettings.json
-api/Seeder
+api/Seeder/
