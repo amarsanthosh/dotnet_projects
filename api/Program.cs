@@ -29,7 +29,7 @@ builder.Services.AddIdentity< AppUser,IdentityRole>(Options =>
     Options.Password.RequireUppercase = true;
 }).AddEntityFrameworkStores<ApplicationDbContext>();
 
-var jwtSettings = builder.Configuration.GetSection("Jwt"); 
+var jwtSettings = builder.Configuration.GetSection("JWT"); 
 builder.Services.AddAuthentication(Options =>
 {
     Options.DefaultAuthenticateScheme =
@@ -49,7 +49,7 @@ builder.Services.AddAuthentication(Options =>
         ValidIssuer = jwtSettings["Issuer"],
         ValidAudience = jwtSettings["Audience"],
         IssuerSigningKey = new SymmetricSecurityKey(
-            System.Text.Encoding.UTF8.GetBytes(jwtSettings["SingingKey"]!)
+            System.Text.Encoding.UTF8.GetBytes(jwtSettings["SigningKey"]!)
         )
     }; 
 } );

@@ -9,6 +9,7 @@ using api.Interface;
 using api.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 namespace api.Controller
 {
 
@@ -23,6 +24,7 @@ namespace api.Controller
         }
 
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetProducts()
         {
             var products = await _productRepo.GetAllProducts();
