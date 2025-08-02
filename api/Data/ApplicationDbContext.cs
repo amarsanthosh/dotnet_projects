@@ -15,6 +15,8 @@ namespace api.Data
         {
         }
         public DbSet<Products> Products { get; set; }
+        
+        public DbSet<RefreshToken> RefreshTokens { get; set; }
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
@@ -27,7 +29,7 @@ namespace api.Data
                     NormalizedName = "ADMIN"
                 },
                 new IdentityRole{
-                    Id = "2", 
+                    Id = "2",
                     Name = "User",
                     NormalizedName = "USER"
                 }
