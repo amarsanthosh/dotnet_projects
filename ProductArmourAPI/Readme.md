@@ -82,7 +82,7 @@
    `git clone https://github.com/amarsanthosh/dotnet_projects.git`
 
 2. Navigate to the API folder  
-   `cd dotnet_projects/api`
+   `cd dotnet_projects/ProductArmourAPI/api`
 
 3. Install dependencies  
    `dotnet restore`
