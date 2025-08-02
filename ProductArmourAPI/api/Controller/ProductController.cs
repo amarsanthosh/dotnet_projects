@@ -24,7 +24,7 @@ namespace api.Controller
         }
 
         [HttpGet]
-        [Authorize(Roles="Admin")]
+        [Authorize]
         public async Task<IActionResult> GetProducts()
         {
             var products = await _productRepo.GetAllProducts();
@@ -43,7 +43,7 @@ namespace api.Controller
 
 
         [HttpPost]
-        [Authorize]
+        [Authorize(Roles="Admin")]
         public async Task<IActionResult> CreateProducts([FromBody] CreateDto dto)
         {
             var productModel = dto.ToProductFromCreateDto();
@@ -52,7 +52,7 @@ namespace api.Controller
         }
 
         [HttpPut]
-        [Authorize]
+        [Authorize(Roles="Admin")]
         [Route("{id:int}")]
         public async Task<IActionResult> UpdateProducts([FromRoute] int id, [FromBody] UpdateDto dto)
         {
@@ -67,7 +67,7 @@ namespace api.Controller
         }
 
         [HttpDelete("{id:int}")]
-        [Authorize]
+        [Authorize(Roles="Admin")]
         public async Task<IActionResult> DeleteProducts([FromRoute] int id)
         {
             var product = await _productRepo.DeleteProducts(id);

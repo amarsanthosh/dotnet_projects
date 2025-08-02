@@ -8,7 +8,6 @@
 
 ---
 
-## 🚀 Overview
 
 **ProductArmorAPI** is a RESTful Web API designed to simulate a secure backend for managing products. It features:
 
@@ -24,20 +23,19 @@
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Layer         | Technology         |
 |---------------|--------------------|
 | Framework     | ASP.NET Core 9.0   |
 | Auth          | JWT + Refresh Token |
 | DB            | Entity Framework + SQL Server |
-| Mapping       | AutoMapper         |
 | Architecture  | Repository-Service pattern |
 | Hosting       | Localhost / Ready for Azure |
 
 ---
 
-## 🔑 Key Features
+##  Key Features
 
 ### 👤 Authentication
 - Secure login/registration
@@ -64,7 +62,7 @@
 
 ---
 
-## 🚧 Endpoints Snapshot
+##  Endpoints Snapshot
 
 | Endpoint                | Method | Auth Required | Role |
 |-------------------------|--------|----------------|------|
@@ -78,7 +76,7 @@
 
 ---
 
-## 🧪 Run Locally
+##  Run Locally
 
 1. Clone the repo  
    `git clone https://github.com/amarsanthosh/dotnet_projects.git`
@@ -96,19 +94,14 @@
 
 ---
 
-## 📄 Resume / Portfolio Summary
 
-> **ProductArmorAPI** is a secure product management backend built using ASP.NET Core. It demonstrates real-world implementation of JWT authentication, refresh tokens, and role-based access control. Designed with clean architecture principles and layered abstractions for easy scaling and testing.
-
----
-
-## 🤝 License
+##  License
 
 This project is licensed under the MIT License.
 
 ---
 
-## 🧠 Author
+##  Author
 
 Developed by [Amar Santhosh](https://github.com/amarsanthosh)  
 Follow for more: [@amarsanthosh](https://github.com/amarsanthosh)
