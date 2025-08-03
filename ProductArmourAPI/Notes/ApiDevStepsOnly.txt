@@ -1,0 +1,41 @@
+1. install identity extensions from nuget -> it comes with identityUser,SigninManager,UserManager class {identity - core , efc | authentication.jwtbearer}
+2. create a AppUser model
+3. make sure to tell the applictiondbcontext that we are using identity. {IdentityDbContext<AppUser>}
+4. AddIdentity services in Program.cs
+5. install extension -> Microsoft.AspNetCore.Authentication.JwtBearer
+6. Add JWT settings in appsettings  
+7. AddAuthentication and addjwtbearer service in program.cs 
+8. Create the AccountController.cs
+9. Now create a RegisterDto under Account folder in DTOs
+10. In Applicationdbcontext override the OnModelCreating() method
+11. Now complete the AccountController {register user endpoint}
+12. do the database migrations and update.
+13. create a new Service folder under api. 
+14. create a ITokenService in Interface.
+15. create a TokenService in Service folder
+16. register the TokenService in program.cs
+17. create NewUserDto for returning purpose {username, Email, Token}
+18. Inject the ITokenService in Account Controller and while return newuserdto on succeed
+19. Create a Login Dto. 
+20. Now implement the Login endpoint
+21. now in program.cs copy paste the code, TO make the swagger compatible for JWT token
+22. Protect the endpoints using [Authorize] 
+23. Need to seed the admin user , create a seeder folder, AdminSeeder.cs ->
+24. Then register this in program.cs
+25. add the claims in TokenService , CreateToken method
+
+
+
+!!!!!!!!!----- Refresh Token authentication ------!!!!!!!!!!!
+-------------------------------------------------------------
+step 1 : add refreshToken model
+step 2: update appuser to include refresh token. 
+step 2: Add refreshToken Table to database
+step 3: Add generaterefreshToken method in TokenService.
+step 4: Update the AcccountController to include refreshToken 
+step 4:After successful login, we need to gen token , and update it to the user and finnaly send/store it in user http cookies
+
+
+
+
+
