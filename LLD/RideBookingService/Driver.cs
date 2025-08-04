@@ -10,7 +10,7 @@ namespace RideBookingService
          public int Id { get; set; }
          public string Name { get; set; }
          public bool IsAvailable { get; set; } = true;
-         public Location CurrentLocation { get; set; }
+         public Location CurrentLocation { get; set; } = new Location(0, 0); // Default location
 
         public Driver(int id, string name, Location location)
         {
