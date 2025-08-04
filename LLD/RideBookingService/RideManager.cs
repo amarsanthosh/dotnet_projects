@@ -7,7 +7,7 @@ namespace RideBookingService
 {
     public class RideManager
     {
-        public static List<Driver> drivers = new List<Driver>(); 
+        public List<Driver> drivers = new List<Driver>();    
 
         public void AddDriver(Driver driver)
         {
