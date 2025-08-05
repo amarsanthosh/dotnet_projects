@@ -1,0 +1,15 @@
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\obj\Debug\net9.0\Splitwiseapp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\obj\Debug\net9.0\Splitwiseapp.AssemblyInfoInputs.cache
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\obj\Debug\net9.0\Splitwiseapp.AssemblyInfo.cs
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\obj\Debug\net9.0\Splitwiseapp.csproj.CoreCompileInputs.cache
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\obj\Debug\net9.0\Splitwiseapp.sourcelink.json
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\bin\Debug\net9.0\Splitwiseapp.exe
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\bin\Debug\net9.0\Splitwiseapp.deps.json
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\bin\Debug\net9.0\Splitwiseapp.runtimeconfig.json
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\bin\Debug\net9.0\Splitwiseapp.dll
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\bin\Debug\net9.0\Splitwiseapp.pdb
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\obj\Debug\net9.0\Splitwiseapp.dll
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\obj\Debug\net9.0\refint\Splitwiseapp.dll
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\obj\Debug\net9.0\Splitwiseapp.pdb
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\obj\Debug\net9.0\Splitwiseapp.genruntimeconfig.cache
+C:\Users\sandyman\playground\dotnet_proj\practice\LLD\Splitwiseapp\obj\Debug\net9.0\ref\Splitwiseapp.dll
