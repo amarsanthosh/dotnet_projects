@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using RideBookingService;
 // Console.WriteLine("Hello, World!");
-
+// namespace RideBookingService
 class Program
 {
     static void Main(string[] args)
@@ -25,18 +25,17 @@ class Program
         Location pickupLocation = new Location(37.7779, -122.4194); // San Francisco coordinates
         Location dropoffLocation = new Location(34.0522, -118.2437); // Los Angeles coordinates
         Console.WriteLine("Booking Request ...");
-        Console.WriteLine("Rider Id: " + rider.getId() + " Rider pickup location: " + pickupLocation + " Rider dropoff location: " + dropoffLocation);
+        int riderId = rider.getId();
+        Console.WriteLine("Rider Id: " + riderId + " Rider pickup location: " + pickupLocation + " Rider dropoff location: " + dropoffLocation);
         Console.WriteLine();
-        Ride ride = new Ride(rider.getId(), pickupLocation , dropoffLocation,rideManager);
-        int  rideId = ride.bookARide();
-        if (rideId == -1)
-        {
-            Console.WriteLine("Ride Discarded !!"); 
-            return;
-        }Console.WriteLine();
-        Console.WriteLine("Ride Details !");
-        ride.RideDetails(rideId); // Assuming ride ID is 1  
-        ride.endRide(rideId); // Ending the ride
-        Console.WriteLine("Ride Completed Successfully!");
+
+
+
+        var rideBookingService = new RideBookingService.RideBookingService(rideManager, riderId, pickupLocation, dropoffLocation);
+        int rideId = rideBookingService.bookARide();
+
+        rideBookingService.RideDetails(rideId);
+        rideBookingService.endRide(rideId);
+
     }
 }
