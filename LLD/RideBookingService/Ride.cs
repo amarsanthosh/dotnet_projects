@@ -10,21 +10,25 @@ namespace RideBookingService
     public class Ride
     {
 
-        public int RideId { get; private set; }
-        public int DriverId { get; private set; }
-        public int RiderId { get; private set; }
-        public Location? PickupLocation { get; private set; }
-        public Location? DropoffLocation { get; private set; }
+        public int RideId { get; set; }
+        public int DriverId { get; set; }
+        public int RiderId { get; set; }
+        public Location? PickupLocation { get; set; }
+        public Location? DropoffLocation { get; set; }
 
-        public Ride(int RideId, int riderId, int DriverId, Location pickupLocation, Location dropoffLocation)
+        public Ride(int RideId, int riderId, Location pickupLocation, Location dropoffLocation)
         {
             RiderId = riderId;
             if (pickupLocation == null) throw new NullReferenceException();
             this.PickupLocation = pickupLocation;
             if (dropoffLocation == null) throw new NullReferenceException();
             this.DropoffLocation = dropoffLocation;
-            this.DriverId = DriverId;
-            this.RideId = RideId; 
+            this.RideId = RideId;
+        }
+        public void RideDetails(int RideId)
+        {
+            // Ride ride; 
+            Console.WriteLine($"Ride ID: {RideId}, Driver ID: {DriverId} , Rider ID: {RiderId}, Pickup: {PickupLocation}, Dropoff: {DropoffLocation}");
         }               
     }
 }

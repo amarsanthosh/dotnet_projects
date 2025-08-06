@@ -30,12 +30,11 @@ class Program
         Console.WriteLine();
 
 
+        Ride ride = new Ride(1, riderId, pickupLocation, dropoffLocation); 
+        var rideBookingService = new RideBookingService.RideBookingService(rideManager);
+        int rideId = rideBookingService.bookARide(ride);
 
-        var rideBookingService = new RideBookingService.RideBookingService(rideManager, riderId, pickupLocation, dropoffLocation);
-        int rideId = rideBookingService.bookARide();
-
-        rideBookingService.RideDetails(rideId);
-        rideBookingService.endRide(rideId);
+        rideBookingService.endRide(ride);
 
     }
 }
