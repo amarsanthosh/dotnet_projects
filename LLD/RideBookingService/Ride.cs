@@ -16,16 +16,15 @@ namespace RideBookingService
         public Location? PickupLocation { get; set; }
         public Location? DropoffLocation { get; set; }
 
-        public Ride(int RideId, int riderId, Location pickupLocation, Location dropoffLocation)
+        public Ride( int riderId, Location pickupLocation, Location dropoffLocation)
         {
             RiderId = riderId;
             if (pickupLocation == null) throw new NullReferenceException();
             this.PickupLocation = pickupLocation;
             if (dropoffLocation == null) throw new NullReferenceException();
             this.DropoffLocation = dropoffLocation;
-            this.RideId = RideId;
         }
-        public void RideDetails(int RideId)
+        public void RideDetails()
         {
             // Ride ride; 
             Console.WriteLine($"Ride ID: {RideId}, Driver ID: {DriverId} , Rider ID: {RiderId}, Pickup: {PickupLocation}, Dropoff: {DropoffLocation}");

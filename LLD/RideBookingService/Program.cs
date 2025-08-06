@@ -30,10 +30,10 @@ class Program
         Console.WriteLine();
 
 
-        Ride ride = new Ride(1, riderId, pickupLocation, dropoffLocation); 
+        Ride ride = new Ride(riderId, pickupLocation, dropoffLocation); 
         var rideBookingService = new RideBookingService.RideBookingService(rideManager);
         int rideId = rideBookingService.bookARide(ride);
-
+        if (rideId == -1) Console.WriteLine("No Drivers Assigned !!! Ride cancelled"); 
         rideBookingService.endRide(ride);
 
     }

@@ -9,13 +9,7 @@ namespace RideBookingService
     {
         public static int idcount = 0;
         private readonly RideManager _rideManager;
-        // private readonly Location PickupLocation;
-        // private readonly Location DropoffLocation;
-
-        // private int RiderId; 
-        // private int DriverId;
-
-
+    
         public RideBookingService(RideManager rideManager)
         {
             _rideManager = rideManager;
@@ -64,7 +58,7 @@ namespace RideBookingService
             }
             ++idcount;
             // Ride ride = new Ride(idcount, RiderId, DriverId, PickupLocation, DropoffLocation);
-            return idcount; 
+            return ride.RideId = idcount; 
         }
 
         public void cancelARide(int RideId)
