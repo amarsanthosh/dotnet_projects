@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RideBookingService
 {
-    public class RideBookingService
+    public class RideBookingService : IRideBookingService
     {
         public static int idcount = 0;
         private readonly RideManager _rideManager;
@@ -43,12 +43,11 @@ namespace RideBookingService
 
         public int bookARide(Ride ride)
         {
-
             Driver d = AssignDriverToRide(ride);
             if (d != null)
             {
                 ride.DriverId = d.Id;
-                d.IsAvailable = false; // Mark driver as unavailable 
+                d.ToggleAvailability(d.IsAvailable); // Mark driver as unavailable 
                 d.UpdateLocation(ride.DropoffLocation!); // Update driver's current location to dropoff
                 Console.WriteLine($"Ride booked with Driver ID: {d.Id} from {ride.PickupLocation} to {ride.DropoffLocation}");
             }
@@ -62,17 +61,11 @@ namespace RideBookingService
             return ride.RideId = idcount; 
         }
 
-        public void cancelARide(int RideId)
+        public void cancelARide(Ride ride)
         {
             // Logic to cancel a ride
-            Console.WriteLine($"Ride with ID: {RideId} has been cancelled.");
+            Console.WriteLine($"Ride with ID: {ride.RideId} has been cancelled.");
         }
-
-        // public void RideDetails(int RideId)
-        // {
-        //     // Ride ride; 
-            
-        // }
 
         public void endRide(Ride ride)
         {
@@ -84,10 +77,6 @@ namespace RideBookingService
             }
 
         }
-        
-
-       
-
-
+    
     }
 }
