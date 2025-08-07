@@ -13,6 +13,10 @@ namespace RideBookingService
             SharedRiderIds = sharedRiderIds ?? new List<int>();
         }
 
-        
+        public override string ToString()
+        {
+            string s = string.Join(" , ", SharedRiderIds);
+            return  $" Shared Riders : {s}" ;
+        }
     }
 }

@@ -16,7 +16,7 @@ namespace RideBookingService
         }
         public Driver AssignDriverToRide(Ride ride)
         {
-            Driver? d = _rideManager.drivers.FirstOrDefault(d => d.CurrentLocation.Latitude == ride.PickupLocation!.Latitude && d.CurrentLocation.Longitude == ride.PickupLocation.Longitude);
+            Driver? d = _rideManager.drivers.FirstOrDefault(d => d.IsAvailable == true && d.CurrentLocation.Latitude == ride.PickupLocation!.Latitude && d.CurrentLocation.Longitude == ride.PickupLocation.Longitude);
             if (d == null)
             {
                 double actualDistance = ride.PickupLocation!.Latitude + ride.PickupLocation!.Longitude;
@@ -26,6 +26,7 @@ namespace RideBookingService
 
                 foreach (var i in _rideManager.drivers)
                 {
+                    // if (!i.IsAvailable) break;  
                     compare = Math.Abs(actualDistance - (i.CurrentLocation.Latitude + i.CurrentLocation.Longitude));
                     if (compare < minimumDistance)
                     {
@@ -78,7 +79,7 @@ namespace RideBookingService
             Driver? d = _rideManager.drivers.FirstOrDefault(d => d.Id == ride.DriverId);
             if (d != null)
             {
-                d.IsAvailable = true;
+                // d.IsAvailable = true;
                 Console.WriteLine($"Ride with ID: {ride.RideId} has ended. Driver: {d.Id} is now available.");
             }
 

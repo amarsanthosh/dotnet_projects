@@ -30,11 +30,24 @@ class Program
         Console.WriteLine();
 
 
-        Ride ride = new Ride(riderId, pickupLocation, dropoffLocation); 
+        Ride ride = new Ride(riderId, pickupLocation, dropoffLocation);
         var rideBookingService = new RideBookingService.RideBookingService(rideManager);
         int rideId = rideBookingService.bookARide(ride);
-        if (rideId == -1) Console.WriteLine("No Drivers Assigned !!! Ride cancelled"); 
+        if (rideId == -1) Console.WriteLine("No Drivers Assigned !!! Ride cancelled");
         rideBookingService.endRide(ride);
+
+        Rider rider2 = new Rider(2, "Ajay");
+        Rider rider3 = new Rider(3, "amar");
+        pickupLocation = new Location(34.0522, -118.2437);
+        dropoffLocation =  new Location(37.7779, -122.4194);
+        riderId = rider2.getId();
+        List<int> sharedRiderIds = new List<int> { 2, 3 };
+        var poolRide = new PoolRide(riderId, pickupLocation, dropoffLocation, sharedRiderIds);
+        int poolRideId = rideBookingService.bookARide(poolRide);
+        if (poolRideId == -1) Console.WriteLine("No Drivers Assigned !!! Ride cancelled");
+        else Console.WriteLine(poolRide);
+
+        rideBookingService.endRide(poolRide);
 
     }
 }
