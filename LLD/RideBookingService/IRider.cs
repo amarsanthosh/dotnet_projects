@@ -12,6 +12,8 @@ namespace RideBookingService
 
         void cancelARide(Ride ride);
 
-        void endARide(Ride ride); 
+        void endARide(Ride ride);
+
+        public int getId();
     }
 }

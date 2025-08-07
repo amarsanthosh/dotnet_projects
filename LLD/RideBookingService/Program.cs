@@ -20,10 +20,10 @@ class Program
             Console.WriteLine($"Driver ID: {drv.Id}, Name: {drv.Name}, Location: ({drv.CurrentLocation.Latitude}, {drv.CurrentLocation.Longitude}), Available: {drv.IsAvailable}");
         }
         Console.WriteLine();
-        var rideBookingService = new RideBookingService.RideBookingService(rideManager);
+        IRideBookingService rideBookingService = new RideBookingService.RideBookingService(rideManager);
 
         // Booking a ride
-        Rider rider = new Rider(1, "Alice",rideBookingService);
+        IRider rider = new Rider(1, "Alice",rideBookingService);
         Location pickupLocation = new Location(37.7779, -122.4194); // San Francisco coordinates
         Location dropoffLocation = new Location(34.0522, -118.2437); // Los Angeles coordinates
         Console.WriteLine("Booking Request ...");
@@ -37,8 +37,8 @@ class Program
         if (rideId == -1) Console.WriteLine("No Drivers Assigned !!! Ride cancelled");
         rider.endARide(ride);
 
-        Rider rider2 = new Rider(2, "Ajay",rideBookingService);
-        Rider rider3 = new Rider(3, "amar",rideBookingService);
+        IRider rider2 = new Rider(2, "Ajay",rideBookingService);
+        IRider rider3 = new Rider(3, "amar",rideBookingService);
         pickupLocation = new Location(34.0522, -118.2437);
         dropoffLocation =  new Location(37.7779, -122.4194);
         riderId = rider2.getId();

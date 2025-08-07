@@ -10,11 +10,11 @@ namespace RideBookingService
         public int Id { get; }
         string name;
 
-        private readonly RideBookingService rideBookingService;
+        private readonly IRideBookingService rideBookingService;
 // 
         // int IRider.Id => throw new NotImplementedException();
 
-        public Rider(int id, string name, RideBookingService rideBookingService)
+        public Rider(int id, string name, IRideBookingService rideBookingService)
         {
             this.Id = id;
             this.name = name;
