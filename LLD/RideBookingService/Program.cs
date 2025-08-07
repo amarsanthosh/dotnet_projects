@@ -6,10 +6,13 @@ class Program
 {
     static void Main(string[] args)
     {
+        RideManager rideManager = new RideManager();
+        IRideBookingService rideBookingService = new RideBookingService.RideBookingService(rideManager);
+
+
         // Drivers added to Driver List 
         Location loc = new Location(37.7749, -122.4194); // San Francisco coordinates
         Driver driver = new Driver(1, "John Doe", loc);
-        RideManager rideManager = new RideManager();
         rideManager.AddDriver(driver);
         Location loc1 = new Location(34.0522, -118.2437); // Los Angeles coordinates
         Driver driver1 = new Driver(2, "Jane Smith", loc1);
@@ -20,7 +23,6 @@ class Program
             Console.WriteLine($"Driver ID: {drv.Id}, Name: {drv.Name}, Location: ({drv.CurrentLocation.Latitude}, {drv.CurrentLocation.Longitude}), Available: {drv.IsAvailable}");
         }
         Console.WriteLine();
-        IRideBookingService rideBookingService = new RideBookingService.RideBookingService(rideManager);
 
         // Booking a ride
         IRider rider = new Rider(1, "Alice",rideBookingService);
