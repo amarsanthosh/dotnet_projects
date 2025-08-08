@@ -24,7 +24,7 @@ namespace MovieTicketBooking
                          value[1], value[2], value[3], double.Parse(value[4]), value[5], value[6], value[7]
                 );
                 Movies.Add(movie);
-            } 
+            }
         }
         public void FetchTheatres()
         {
@@ -36,7 +36,7 @@ namespace MovieTicketBooking
                          value[1], int.Parse(value[2]) // value[3], double.Parse(value[4]), value[5], value[6], value[7]
                 );
                 Theatres.Add(Theatre);
-            } 
+            }
         }
         public void FetchCustomers()
         {
@@ -48,19 +48,19 @@ namespace MovieTicketBooking
                          value[1], value[2] // value[3], double.Parse(value[4]), value[5], value[6], value[7]
                 );
                 Customers.Add(Customer);
-            } 
+            }
         }
-       public void FetchLogins()
+        public void FetchLogins()
         {
             var lines = File.ReadAllLines("Login.csv");
             foreach (var line in lines)
             {
                 var value = line.Split(" , ");
                 var Login = new LoginDetails(
-                         value[1], value[2] ,  value[3]// double.Parse(value[4]), value[5], value[6], value[7]
+                         value[1], value[2], value[3]// double.Parse(value[4]), value[5], value[6], value[7]
                 );
                 Logins.Add(Login);
-            } 
+            }
         }
         public void FetchShows()
         {
@@ -69,10 +69,10 @@ namespace MovieTicketBooking
             {
                 var value = line.Split(" , ");
                 var Show = new Show(
-                         int.Parse(value[1]), int.Parse(value[2]) , DateTime.Parse(value[3]) ,DateTime.Parse(value[4]), decimal.Parse(value[5]),decimal.Parse(value[6]),decimal.Parse(value[7])  // value[3], double.Parse(value[4]), value[5], value[6], value[7]
+                         int.Parse(value[1]), int.Parse(value[2]), DateTime.Parse(value[3]), DateTime.Parse(value[4]), decimal.Parse(value[5]), decimal.Parse(value[6]), decimal.Parse(value[7])  // value[3], double.Parse(value[4]), value[5], value[6], value[7]
                 );
                 Shows.Add(Show);
-            } 
+            }
         }
         public void FetchBookings()
         {
@@ -81,10 +81,10 @@ namespace MovieTicketBooking
             {
                 var value = line.Split(" , ");
                 var Booking = new Booking(
-                         int.Parse(value[1]), value[2] , int.Parse(value[3]) ,value[4], value[5] // value[3], double.Parse(value[4]), value[5], value[6], value[7]
+                         int.Parse(value[1]), value[2], int.Parse(value[3]), value[4], value[5] // value[3], double.Parse(value[4]), value[5], value[6], value[7]
                 );
                 Bookings.Add(Booking);
-            } 
+            }
         }
 
         public MovieDataStore()
@@ -97,5 +97,35 @@ namespace MovieTicketBooking
             FetchTheatres();
         }
 
+        public void AddMovie(Movie movie)
+        {
+            if (movie == null) throw new NullReferenceException();
+            Movies.Add(movie);
+        }
+        public void AddShow(Show Show)
+        {
+            if (Show == null) throw new NullReferenceException();
+            Shows.Add(Show);
+        }
+        public void AddTheatre(Theatre theatre)
+        {
+            if (theatre == null) throw new NullReferenceException();
+            Theatres.Add(theatre);
+        }
+        public void AddCustomer(Customer customer)
+        {
+            if (customer == null) throw new NullReferenceException();
+            Customers.Add(customer);
+        }
+        public void AddLogin(LoginDetails login)
+        {
+            if (login == null) throw new NullReferenceException();
+            Logins.Add(login);
+        }         
+        public void AddBooking(Booking booking)
+        {
+            if (booking == null) throw new NullReferenceException();
+            Bookings.Add(booking);
+        }          
     }
 }
