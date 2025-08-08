@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "cHBmJP+k3eE=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\sandyman\\playground\\dotnet_proj\\practice\\Wipro_Talent_next\\Web_based\\MovieTicketBooking2\\api\\api.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\sandyman\\.nuget\\packages\\microsoft.aspnetcore.openapi\\9.0.1\\microsoft.aspnetcore.openapi.9.0.1.nupkg.sha512",
+    "C:\\Users\\sandyman\\.nuget\\packages\\microsoft.openapi\\1.6.17\\microsoft.openapi.1.6.17.nupkg.sha512"
+  ],
+  "logs": []
+}
