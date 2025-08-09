@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -13,6 +14,7 @@ namespace api.Models
         public string CustomerName { get; set; } = string.Empty;
         public int NumberOfSeats { get; set; }
         public string SeatType { get; set; } = string.Empty;
+        [Column(TypeName ="decimal(18,2)")]
         public decimal Amount { get; set; }
         public string Email { get; set; } = string.Empty;
         public string BookingStatus { get; set; } = string.Empty;
