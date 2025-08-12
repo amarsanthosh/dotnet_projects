@@ -29,8 +29,8 @@ namespace api.Controller
             var movies = await _movieRepo.GetAllMoviesAsync();
             return Ok(movies);
         }
-        [HttpGet("{id}")]
-        public async Task<IActionResult> GetMovieById(string id)
+        [HttpGet("{id:int}")]
+        public async Task<IActionResult> GetMovieById(int id)
         {
             var movie = await _movieRepo.GetMovieByIdAsync(id);
             if (movie == null) return NotFound($"No movie with id => {id}");
@@ -43,16 +43,16 @@ namespace api.Controller
             await _movieRepo.CreateMovieAsync(movie);
             return Ok("Successfully Created");
         }
-        [HttpPut("{id}")]
-        public async Task<IActionResult> UpdateMovie([FromRoute] string id, [FromBody] MovieCreateDto moviedto)
+        [HttpPut("{id:int}")]
+        public async Task<IActionResult> UpdateMovie([FromRoute] int id, [FromBody] MovieCreateDto moviedto)
         {
             var movie = moviedto.ToMovieFromCreateDto();
             var updatedMovie = await _movieRepo.UpdateMovieAsync(id, movie);
             if (updatedMovie == null) return NotFound($"No movie with id => {id}");
             return Ok("Successfully Updated");
         }
-        [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteMovie([FromRoute] string id)
+        [HttpDelete("{id:int}")]
+        public async Task<IActionResult> DeleteMovie([FromRoute] int id)
         {
             var deletedMovie = await _movieRepo.DeleteMovieAsync(id);
             if (deletedMovie == null) return NotFound($"No movie with id => {id}");
