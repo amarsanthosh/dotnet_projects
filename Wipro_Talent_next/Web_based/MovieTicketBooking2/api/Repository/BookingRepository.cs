@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Repository
 {
-    public class BookingRepository : IBookingRepositoy
+    public class BookingRepository : IBookingRepository
     {
         private readonly ApplicationDbContext _context;
         public BookingRepository(ApplicationDbContext context)

@@ -13,13 +13,13 @@ using Microsoft.EntityFrameworkCore.Query.SqlExpressions;
 
 namespace api.Controller
 {
-    [ApiController]
     [Route("api/booking")]
+    [ApiController]
     public class BookingController : ControllerBase
     {
-        private readonly IBookingRepositoy _bookingRepo;
+        private readonly IBookingRepository _bookingRepo;
 
-        public BookingController(IBookingRepositoy bookingRepo)
+        public BookingController(IBookingRepository bookingRepo)
         {
             _bookingRepo = bookingRepo;
         }
@@ -28,7 +28,7 @@ namespace api.Controller
         public async Task<IActionResult> GetAllBookings()
         {
             var bookings = await _bookingRepo.GetAllBookingsAsync();
-            Console.WriteLine("hhh" + bookings);
+            // Console.WriteLine("hhh" + bookings);
 
             return Ok(bookings);
         }

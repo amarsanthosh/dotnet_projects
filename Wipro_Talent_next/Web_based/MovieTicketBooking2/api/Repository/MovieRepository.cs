@@ -26,7 +26,7 @@ namespace api.Repository
         }
 
        //get by id
-        public async Task<Movie?> GetMovieByIdAsync(string id)
+        public async Task<Movie?> GetMovieByIdAsync(int id)
         {
             var movie = await _context.Movie.FirstOrDefaultAsync(x => x.MovieId == id);
             return movie;
@@ -41,7 +41,7 @@ namespace api.Repository
         }
 
         //PUT
-        public async Task<Movie?> UpdateMovieAsync(string id, Movie movie)
+        public async Task<Movie?> UpdateMovieAsync(int id, Movie movie)
         {
             var m = await _context.Movie.FirstOrDefaultAsync(x => x.MovieId == id);
             if (m == null) return m;
@@ -58,7 +58,7 @@ namespace api.Repository
         }
 
         //Delete
-        public async Task<Movie?> DeleteMovieAsync(string id)
+        public async Task<Movie?> DeleteMovieAsync(int id)
         {
             var movie = await _context.Movie.FirstOrDefaultAsync(x => x.MovieId == id);
             if (movie == null) return movie;

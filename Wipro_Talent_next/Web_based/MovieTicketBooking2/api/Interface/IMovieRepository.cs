@@ -9,9 +9,9 @@ namespace api.Interface
     public interface IMovieRepository
     {
         Task<List<Movie>> GetAllMoviesAsync();
-        Task<Movie?> GetMovieByIdAsync(string id);
+        Task<Movie?> GetMovieByIdAsync(int id);
         Task<Movie?> CreateMovieAsync(Movie movie);
-        Task<Movie?> UpdateMovieAsync(string id, Movie movie);
-        Task<Movie?> DeleteMovieAsync(string id);  
+        Task<Movie?> UpdateMovieAsync(int id, Movie movie);
+        Task<Movie?> DeleteMovieAsync(int id);  
     }
 }
