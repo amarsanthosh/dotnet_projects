@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace RideBookingService
 {
-    public class Driver : IDriver
+    public class Driver : IDriver 
     {
          public int Id { get; }
          public string Name { get; set; }
